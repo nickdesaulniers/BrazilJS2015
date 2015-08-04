@@ -2,34 +2,49 @@
 <html lang="en">
   <head>
     <meta charset="utf-8">
-    <title>Template</title>
+    <title>Improving Game Performance On the Web</title>
+    <link href='http://fonts.googleapis.com/css?family=Fira+Sans' rel='stylesheet'/>
     <link rel="stylesheet" href="../reveal.js-2.6.2/css/reveal.min.css"/>
     <link rel="stylesheet" href="../reveal.js-2.6.2/css/theme/fxos.css" id="theme"/>
     <link rel="stylesheet" href="../reveal.js-2.6.2/lib/css/zenburn.css"/>
+    <link rel="stylesheet" href="../mozilla-tabzilla/css/tabzilla.css" media="screen" />
+    <style>
+#dino {
+  position: fixed;
+  bottom: 10px;
+  width: 5%;
+}
+    </style>
   </head>
   <body>
+  <img id="dino" src="dino.svg" alt="Mozilla Dino Head Logo"/>
+  <div id="tabzilla">
+    <a href="https://www.mozilla.org/">Mozilla</a>
+  </div>
     <div class="reveal">
       <div class="slides">
-        <!-- Your content goes here -->
         <section>
-          <h1>JavaScript</h1>
-          <pre><code class="javascript">console.log("Hello World");</code></pre>
+          <h1>Improving Game</h1>
+          <h1>Performance on the Web</h1>
+          <small>Nick Desaulniers - <a href="https://twitter.com/LostOracle">@LostOracle</a></small>
         </section>
         <section>
-          <h2>Numbers</h2>
-          Numbers in JavaScript are IEEE-754 double precision format.
-          <img src="../images/IEEE_754_Double_Floating_Point_Format.svg"/>
-          <small>http://upload.wikimedia.org/wikipedia/commons/a/a9/IEEE_754_Double_Floating_Point_Format.svg</small>
-          <br/>
-          +/- (2^53 - 1) maximum int value.
-          <pre><code class="javascript">
-            Math.pow(2, 53) === Math.pow(2, 53) + 1; // true
-          </code></pre>
-          Infinity, -Infinity, NaN, 0, -0.
-          <pre><code class="javascript">
-            0.1 + 0.2 === 0.3; // false
-          </code></pre>
-          <!-- End of your content -->
+          <h2>Web VR</h2>
+        </section>
+        <section>
+          <h2>Web Assembly</h2>
+        </section>
+        <section>
+          <h2>SharredArrayBuffer</h2>
+        </section>
+        <section>
+          <h2>WebGL 2</h2>
+        </section>
+        <section>
+          <h2>SIMD</h2>
+        </section>
+        <section>
+          <h2>WebGL in Workers</h2>
         </section>
       </div>
     </div>

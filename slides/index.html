@@ -9,11 +9,17 @@
     <link rel="stylesheet" href="../reveal.js-2.6.2/lib/css/zenburn.css"/>
     <link rel="stylesheet" href="../mozilla-tabzilla/css/tabzilla.css" media="screen" />
     <style>
-#dino {
-  position: fixed;
-  bottom: 10px;
-  width: 5%;
-}
+      #dino {
+        position: fixed;
+        bottom: 10px;
+        left: 10px;
+        width: 5%;
+        min-width: 50px;
+        z-index: 30;
+      }
+      .reveal p, .reveal small {
+        font-style: italic;
+      }
     </style>
   </head>
   <body>
@@ -28,23 +34,77 @@
           <h1>Performance on the Web</h1>
           <small>Nick Desaulniers - <a href="https://twitter.com/LostOracle">@LostOracle</a></small>
         </section>
-        <section>
-          <h2>Web VR</h2>
+        <section data-background="huge_vr.jpg">
+          <section>
+            <h2>Web VR</h2>
+            <p>Experience the Web in a whole new way</p>
+          </section>
+          <section>
+            <h2>Time to render 1 frame</h2>
+            <h2>60 Hz === 16.6 ms</h2>
+            <h2>90 Hz === 11 ms</h2>
+          </section>
         </section>
         <section>
           <h2>Web Assembly</h2>
+          <p>Minimize load times</p>
         </section>
         <section>
-          <h2>SharredArrayBuffer</h2>
+          <h2>Concurrency vs Parallelism</h2>
+        </section>
+        <section>
+          <h2>Synchronization</h2>
+        </section>
+        <section>
+          <section>
+            <h2>SharredArrayBuffer</h2>
+            <p>Workers can share read/write access to a TypedArray instead of postMessage</p>
+          </section>
+          <section>
+            <img src="cplusplus.png" alt="danger" style="height: 600px;"/>
+          </section>
+          <section>
+            <h2>Problems with shared memory</h2>
+            <p>Data race conditions can lead to </p>
+            <ul>
+              <li>Data Race Conditions</li>
+              <li>Deadlock</li>
+              <li>LiveLock</li>
+            </ul>
+          </section>
+          <section>
+            <p>SharedArrayBuffer gives us synchronization primitives to help</p>
+            <ul>
+              <li>Mutexes</li>
+              <li>Atomics</li>
+            </ul>
+          </section>
+          <section>
+            <p>From there, we can build:</p>
+            <ul>
+              <li>condition variables</li>
+              <li>semaphores</li>
+              <li>spin locks</li>
+            </ul>
+          </section>
         </section>
         <section>
           <h2>WebGL 2</h2>
+          <p>Minimize CPU &lt;-&gt; GPU synchronization</p>
         </section>
         <section>
           <h2>SIMD</h2>
+          <p>Increased parallelism with no synchronization</p>
         </section>
         <section>
-          <h2>WebGL in Workers</h2>
+          <section>
+            <h2>WebGL in Workers</h2>
+            <p>Stay off the main thread</p>
+          </section>
+          <section>
+            <h2>Prediction</h2>
+            <p>We'll begin to see more and more work being pushed off of the main thread</p>
+          </section>
         </section>
       </div>
     </div>

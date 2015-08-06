@@ -17,7 +17,7 @@
         min-width: 50px;
         z-index: 30;
       }
-      .reveal p, .reveal small {
+      .reveal p, .reveal small, .reveal li {
         font-style: italic;
       }
     </style>
@@ -40,9 +40,11 @@
             <p>Experience the Web in a whole new way</p>
           </section>
           <section>
-            <h2>Time to render 1 frame</h2>
+            <h2>Time to render a single frame</h2>
             <h2>60 Hz === 16.6 ms</h2>
             <h2>90 Hz === 11 ms</h2>
+            <p class="fragment">oh, and you have to render everything twice</p>
+            <p class="fragment">from two different viewpoints</p>
           </section>
         </section>
         <section>
@@ -51,6 +53,11 @@
         </section>
         <section>
           <h2>Concurrency vs Parallelism</h2>
+          <p class="fragment">Interruptible? Concurrent</p>
+          <p class="fragment">Independant? Parallel</p>
+          <p class="fragment">Not mutually exclusive, could have both, either, neither</p>
+          JavaScript's single threaded event loop is great for IO bound workloads.
+          Highly concurrent, but we're not utilizing additional resources that we could be.
         </section>
         <section>
           <h2>Synchronization</h2>
@@ -65,27 +72,39 @@
           </section>
           <section>
             <h2>Problems with shared memory</h2>
-            <p>Data race conditions can lead to </p>
+            <p>Shared memory can lead to</p>
             <ul>
               <li>Data Race Conditions</li>
               <li>Deadlock</li>
-              <li>LiveLock</li>
             </ul>
+          </section>
+          <section>
+            <img src="thistall.jpg" alt="You must be this tall to write multithreaded code">
           </section>
           <section>
             <p>SharedArrayBuffer gives us synchronization primitives to help</p>
             <ul>
-              <li>Mutexes</li>
+              <li>&quot;Futexes&quot;</li>
               <li>Atomics</li>
             </ul>
           </section>
           <section>
             <p>From there, we can build:</p>
             <ul>
-              <li>condition variables</li>
-              <li>semaphores</li>
-              <li>spin locks</li>
+              <li>Mutexes</li>
+              <li>Condition Variables</li>
+              <li>Semaphores</li>
+              <li>Spin Locks</li>
             </ul>
+          </section>
+          <section>
+            <h2>Mutex.js?</h2>
+          </section>
+          <section>
+            <img src="reaper2.gif" alt="Grim Reaper"/>
+          </section>
+          <section>
+            <p>Prefer task level parallelism (postMessage) to data level parallelism (SharedArrayBuffer)</p>
           </section>
         </section>
         <section>
@@ -93,8 +112,21 @@
           <p>Minimize CPU &lt;-&gt; GPU synchronization</p>
         </section>
         <section>
-          <h2>SIMD</h2>
-          <p>Increased parallelism with no synchronization</p>
+          <section>
+            <h2>SIMD</h2>
+            <p>Increased parallelism with no synchronization</p>
+          </section>
+          <section>
+            <p>Working on implementing SIMD optimizations to gl-matrix</p>
+            <ul>
+              <li>
+                <a href="https://github.com/toji/gl-matrix/issues/171">#171</a>
+              </li>
+              <li>
+                <a href="https://github.com/toji/gl-matrix/pull/172">#172</a>
+              </li>
+            </ul>
+          </section>
         </section>
         <section>
           <section>

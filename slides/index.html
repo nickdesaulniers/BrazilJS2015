@@ -38,6 +38,7 @@
           <section>
             <h2>Web VR</h2>
             <p>Experience the Web in a whole new way</p>
+            <!--https://github.com/MozVR/webvr-spec-->
           </section>
           <section>
             <h2>Time to render a single frame</h2>
@@ -46,26 +47,44 @@
             <p class="fragment">oh, and you have to render everything twice</p>
             <p class="fragment">from two different viewpoints</p>
           </section>
+          <section>
+            <h2>CSS VR</h2>
+            <p>Ability to share depth information between WebGL and CSS</p>
+          </section>
         </section>
         <section>
-          <h2>Web Assembly</h2>
-          <p>Minimize load times</p>
+          <section>
+            <h2>Web Assembly</h2>
+            <p>Minimize load times</p>
+          </section>
+          <section>
+            <p>Binary and text representation</p>
+            <!--View Source on day 1-->
+            <!--No silly type coercions-->
+            <p class="fragment"><a href="https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md#why-a-binary-encoding-instead-of-a-text-only-representation">30%</a> smaller than gzipped asm.js</p>
+            <p class="fragment">Can be parsed <a href="https://github.com/WebAssembly/design/blob/master/BinaryEncoding.md#why-a-binary-encoding-instead-of-a-text-only-representation">23x</a> faster than large asm.js modules</p>
+          </section>
+          <section>
+            <p>Are we removing JS?</p>
+            <h2 class="fragment">Hell no</h2>
+          </section>
         </section>
         <section>
           <h2>Concurrency vs Parallelism</h2>
           <p class="fragment">Interruptible? Concurrent</p>
           <p class="fragment">Independant? Parallel</p>
           <p class="fragment">Not mutually exclusive, could have both, either, neither</p>
-          JavaScript's single threaded event loop is great for IO bound workloads.
-          Highly concurrent, but we're not utilizing additional resources that we could be.
+          <p class="fragment">JavaScript's single threaded event loop is great for IO bound workloads. Highly concurrent, but we're not utilizing additional resources that we could be.</p>
         </section>
         <section>
           <h2>Synchronization</h2>
+          <!--<iframe width="560" height="315" src="https://www.youtube.com/embed/VHSDcdmFOx4" frameborder="0" allowfullscreen></iframe>-->
         </section>
         <section>
           <section>
             <h2>SharredArrayBuffer</h2>
             <p>Workers can share read/write access to a TypedArray instead of postMessage</p>
+            <!--https://github.com/lars-t-hansen/ecmascript_sharedmem-->
           </section>
           <section>
             <img src="cplusplus.png" alt="danger" style="height: 600px;"/>
@@ -108,8 +127,27 @@
           </section>
         </section>
         <section>
-          <h2>WebGL 2</h2>
-          <p>Minimize CPU &lt;-&gt; GPU synchronization</p>
+          <section>
+            <h2>WebGL 2</h2>
+            <p>Minimize CPU &lt;-&gt; GPU synchronization</p>
+          </section>
+          <section>
+            <img src="history.jpg" alt="OpenGL Family Tree">
+          </section>
+          <section>
+            <h2>What's new in WebGL2</h2>
+            <ul>
+              <li>Many WebGL1 extensions now mandatory</li>
+              <ul>
+                <li>Vertex Array Objects (VAOs)</li>
+                <li>Instancing</li>
+                <li>Multiple Render Targets</li>
+              </ul>
+              <li>Uniform Buffer Objects (UBOs)</li>
+              <li>Memory Barriers (Fences)</li>
+              <li>Still no geometry shaders</li>
+            </ul>
+          </section>
         </section>
         <section>
           <section>
@@ -117,21 +155,20 @@
             <p>Increased parallelism with no synchronization</p>
           </section>
           <section>
-            <p>Working on implementing SIMD optimizations to gl-matrix</p>
-            <ul>
-              <li>
-                <a href="https://github.com/toji/gl-matrix/issues/171">#171</a>
-              </li>
-              <li>
-                <a href="https://github.com/toji/gl-matrix/pull/172">#172</a>
-              </li>
-            </ul>
+            <img src="vec_mul.gif" alt="vector multiply"/>
+          </section>
+          <section>
+            <p>Working on implementing SIMD optimizations to <a href="https://github.com/toji/gl-matrix/issues/171">gl-matrix</a></p>
           </section>
         </section>
         <section>
           <section>
             <h2>WebGL in Workers</h2>
             <p>Stay off the main thread</p>
+          </section>
+          <section>
+            <p>For the first time, you'll be able to modify what's shown to the user
+            from another thread.</p>
           </section>
           <section>
             <h2>Prediction</h2>
